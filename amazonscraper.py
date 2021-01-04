@@ -40,7 +40,7 @@ def extract(item):
     
     return result
 
-#Main program function where the the search and extract functions are used to apply the extraction model to the first 20 pages of amazon.
+#Main program function where the the search and extract functions are used to apply the extraction model to the first 6 pages of amazon.
 #The data extracted is formatted and added to a csv file named after the desired product. 
 def main(item):
     driver = webdriver.Chrome(ChromeDriverManager().install())
@@ -48,7 +48,7 @@ def main(item):
     records = []
     url = search(item)
     
-    for page in range(1,21):
+    for page in range(1,6):
         driver.get(url.format(page))
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         results = soup.find_all('div',{'data-component-type':"s-search-result"})
