@@ -48,7 +48,7 @@ def main(item):
     records = []
     url = search(item)
     
-    for page in range(1,6):
+    for page in range(1,7):
         driver.get(url.format(page))
         soup = BeautifulSoup(driver.page_source, 'html.parser')
         results = soup.find_all('div',{'data-component-type':"s-search-result"})
